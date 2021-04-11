@@ -1,8 +1,10 @@
+//import model
+const burger = require('../models/burger.js');
+
 //require express
 const express = require('express');
 const router = express.Router();
-//import model
-const burger = require('../models/burger.js');
+
 //routes
 //get
 router.get('/', (req, res) => {

@@ -5,10 +5,10 @@
 {{! Handlebar for ready to eat}}
 <h2>Burgers Ready to Eat</h2>
 <ul>
-{{#each burger}}
-{{#unless devoured}}
-{{> burgers/burger-block devoured=false}}
-{{/unless}}
+{{#each burger_name}}
+{{#if devoured}}
+{{>partials/burger-block devoured=false}}
+{{/if}}
 {{/each}}
 </ul>
 
@@ -16,9 +16,9 @@
 <h2>Burgers In Your Belly!
 </h2>
 <ul>
-{{#each burger}}
+{{#each burger_name}}
 {{#unless devoured}}
-{{> burgers/burger-block devoured=true}}
+{{>burgers/burger-block devoured=true}}
 {{/unless}}
 {{/each}}
 </ul>
