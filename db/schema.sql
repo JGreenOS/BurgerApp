@@ -1,4 +1,3 @@
-
 USE u9zydv5t5kdsezuy; 
 
 CREATE TABLE burger(
