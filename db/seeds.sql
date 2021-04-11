@@ -1,4 +1,5 @@
-INSERT INTO u9zydv5t5kdsezuy(
+USE u9zydv5t5kdsezuy;
+INSERT INTO burger(
     burger_name, devoured)
     VALUES
     ("Single", 0),
