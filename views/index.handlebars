@@ -2,23 +2,22 @@
 
 <h2> Make and devour your burger!</h2>
 
-{{! Handlebar for ready to eat}}
+
 <h2>Burgers Ready to Eat</h2>
 <ul>
 {{#each burger_name}}
-{{#if devoured}}
-{{>partials/burger-block devoured=false}}
-{{/if}}
+{{#unless eaten}}
+{{> partials/burger-block}}
+{{/unless}}
 {{/each}}
 </ul>
 
-{{! Handlebar for eaten/devoured burgers}}
 <h2>Burgers In Your Belly!
 </h2>
 <ul>
 {{#each burger_name}}
-{{#unless devoured}}
-{{>burgers/burger-block devoured=true}}
+{{#unless eaten}}
+{{>burgers/burger-block eaten=true}}
 {{/unless}}
 {{/each}}
 </ul>

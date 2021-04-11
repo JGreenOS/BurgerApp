@@ -1,5 +1,4 @@
-//import MYsqL connection
-const { query } = require('./connection.js');
+
 const connection = require('./connection.js');
 
 //helper function for SQL syntax for question marks in queries
@@ -36,12 +35,14 @@ return arr.toString();
 const orm = {
 all(tableInput, cb) {
     const queryString = `SELECT * FROM ${tableInput};`;
-    connection.query(queryString, (err, result) => {
+    connection.query(queryString,
+        (err, result) => {
         if (err) {
             throw err;
         }
         cb(result);
-    });
+    }
+    );
 },
 //create
 create (table, cols, vals, cb) {
@@ -78,22 +79,9 @@ update(table, objColVals, condition, cb){
         }
     cb(result);
     });
-},
-  //delete
-delete(table, condition, cb) {
-let queryString = `DELETE FROM ${table}`;
-queryString += ' WHERE ';
-queryString += condition;
+    },
+}
 
-connection.query(queryString, (err, result) => {
-    if (err) {
-        throw err;
-    }
-    cb(result);
-});
 
-},
-
-};
 //export the orm to the model for burgers   
 module.exports = orm; 
