@@ -1,4 +1,4 @@
-CREATE DATABASE u9zydv5t5kdsezuy; 
+
 USE u9zydv5t5kdsezuy; 
 
 CREATE TABLE burger(
