@@ -1,5 +1,7 @@
+/*Stylesheet for Burger App */
+
 body {
-    background-color: #f7f7f7;
+    background-color: #f03636;
 }
 
 img {
@@ -12,13 +14,13 @@ img {
 }
 
 h1 {
-    font-family: 'Fascinate', cursive;
+    font-family: 'Times New Roman';
     font-size: 3.75rem;
     margin-bottom: 2.5rem;
 }
 
 h2 {
-    font-family: 'Fascinate', cursive;
+    font-family: 'Times New Roman';
     font-size: 2.25rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
