@@ -5,9 +5,9 @@
 
 <h2>Burgers Ready to Eat</h2>
 <ul>
-{{#each burger_name}}
+{{#each burger}}
 {{#unless eaten}}
-{{> partials/burger-block}}
+{{> burger/burger-block eaten=false}}
 {{/unless}}
 {{/each}}
 </ul>
@@ -15,10 +15,10 @@
 <h2>Burgers In Your Belly!
 </h2>
 <ul>
-{{#each burger_name}}
-{{#unless eaten}}
-{{>burgers/burger-block eaten=true}}
-{{/unless}}
+{{#each burger}}
+{{#if eaten}}
+{{> burger/burger-block eaten=true}}
+{{/if}}
 {{/each}}
 </ul>
 

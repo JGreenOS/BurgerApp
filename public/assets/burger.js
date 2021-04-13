@@ -1,30 +1,28 @@
-//Handlers for DOM
-document.addEventListener('DOMContentLoaded', (event) => {
-    if (event) {
-    console.info('DOM loaded');
-}
+
 
 //Use the button to UPDATE the status
- const changeEatBtns = document.querySelectorAll('.change-eat');
+ const changeEatBtns = document.querySelectorAll('.change-eaten');
+console.log(changeEatBtns);
 
 //Event listener for create burger button
  if(changeEatBtns) {
     changeEatBtns.forEach((button) => {
         button.addEventListener('click', (e) => {
             const id = e.target.getAttribute('data-id');
-            const newEat = e.target.getAttribute('data-neweat');
+            const newEat = e.target.getAttribute('data-eaten');
 
             const newEatState = {
-                devoured: newEat,
+                eaten: newEat == '1' ? true : false,
             };
 
-            fetch(`/api/burgers/${id}`, {
+            fetch(`/api/burger/${id}`, {
                 method: 'PUT', 
                 headers: {
                     Accept: 'application/json', 
+                    'Content-Type': 'application/json'
                 },
 
-            body:JSON.stringify(newEatState),    
+                body:JSON.stringify(newEatState),    
             }).then((response) => {
                 if(response.ok) {
                     console.log(`changed burger to: ${newEat}`);
@@ -65,5 +63,5 @@ if(createBurgerBtn) {
         });
     }
 
-    )}
-})
+    )
+}

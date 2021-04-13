@@ -1,8 +1,10 @@
 <li>
-{{burger}}
+{{burger_name}}
 
-<button class="change-me" data-id="{{id}}" data-neweat="{{eaten}}">
-    {{#if eaten}} SO GOOD, make it again!{{else} GET IN MY BELLY!{{/if}}
+<button class="change-eaten" data-id="{{id}}" data-eaten="{{eaten}}">
+    {{#if eaten}}SO GOOD, make it again!
+    {{else}}GET IN MY BELLY!
+    {{/if}}
 </button>
 
 </li>

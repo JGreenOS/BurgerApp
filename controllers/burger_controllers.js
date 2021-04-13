@@ -7,13 +7,11 @@ const burger = require('../models/burger.js');
 //get
 router.get('/', (req, res) => {
 burger.all((data) => {
-    const hbsObject = {
-        burger: data,
-    };
-    console.log(hbsObject);
-    res.render('index', hbsObject);
+    res.render('index', {burger: data});
+    });
 });
-});
+
+
 //post-create
 router.post('/api/burger/:id', (req, res) => {
     burger.insertOne(['burger_name'], [req.body.name], (result) => {
@@ -24,9 +22,10 @@ res.json({ id: result.insertId });
 
 //put-update
 router.put('/api/burger/:id', (req, res) => {
-const condition = `id = ${req.params.id}`;
+const condition = `${req.params.id}`;
 console.log('condition', condition);
-burger.updateOne(
+console.log(req.body)
+burger.update(
     {
         eaten: req.body.eaten,
     },
