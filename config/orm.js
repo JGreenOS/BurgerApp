@@ -3,17 +3,17 @@ const connection = require('./connection.js');
 
 // //helper function for SQL syntax for question marks in queries
 // const printQuestionMarks = (num) => {
-//     const arr = [];
-//     for (let i = 0; i < num; i++)
-//     {
-//         arr.push('?');
-//     }
-//     return arr.toString();
+//      const arr = [];
+//      for (let i = 0; i < num; i++) {
 
-// };
+//          arr.push('?');
+//      }
+//      return arr.toString();
+
+//  };
 
  //helper function to take object key/value pairs to SQL
- const objToSQL = (ob) => {
+ const objToSql = (ob) => {
      const arr = [];
          for (const key in ob) {
              let value = ob[key];
@@ -21,9 +21,9 @@ const connection = require('./connection.js');
              if (Object.hasOwnProperty.call(ob, key)){
                  //add quotes to strings that may have spaces
                  if (typeof value === 'string' && value.indexOf(' ') >= 0){
-                     value = `'${value}`;
+                     value = `'${value}'`;
                  }
-                 arr.push(`${key} =${value}`);
+                 arr.push(`${key}=${value}`);
              }
          }
          //translate the array into a csv string
@@ -33,39 +33,46 @@ const connection = require('./connection.js');
 //object for SQL statement functions
 
 const orm = {
-all(tableInput, cb) {
-    const queryString = 'SELECT * FROM ??';
-    connection.query(queryString,
-        [tableInput],
-        (err, result) => {
-        if (err) {
-            throw err;
-        }
-        cb(result);
-    }
-    );
-},
-//create
-create (table, cols, vals, cb) {
-    let queryString = 'INSERT INTO ?? (burger_name, eaten) VALUES (? , ?)\;';
+  selectAll(tableInput, cb) {
+    const queryString = `SELECT * FROM ${tableInput};`;
+    connection.query(queryString, (err, result) => {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+  insertOne(table, cols, vals, cb) {
+    let queryString = `INSERT INTO ${table}`;
+
+    queryString += ' (';
+    queryString += cols.toString();
+    queryString += ') ';
+    queryString += 'VALUES (';
+    queryString += printQuestionMarks(vals.length);
+    queryString += ') ';
+
     console.log(queryString);
 
-    connection.query(queryString, [table, cols, vals], (err, result) => {
-        if (err) {
-            throw err;
-        }
-    cb(result);
+    connection.query(queryString, vals, (err, result) => {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
     });
 },
-    //update
-update(table, objColVals, burgerId, cb){
-   let queryString = 'UPDATE ' + table;
+  // An example of objColVals would be {name: hamburglar, devoured: true}
+updateOne(table, objColVals, condition, cb){
+   let queryString = `UPDATE ${table}`;
 
    queryString += ' SET ';
-   queryString += objToSQL(objColVals);
-   queryString += ' WHERE id = ' + burgerId;
+   queryString += objToSql(objColVals);
+   queryString += ' WHERE id=';
+   queryString += condition;
 
     console.log(queryString);
+    console.log("condition is", condition);
     connection.query(queryString, (err, result) => {
         if (err) {
             throw err;

@@ -1,16 +1,16 @@
 //Reference the ORM to bring the functions for the database
 
-const orm = require('../config/orm.js');
+const orm = require('../config/orm');
 
 const burger = {
     all(cb) {
-        orm.all('burger', (res) => cb(res));
+        orm.selectAll('burger', (res) => cb(res));
     },
-    create(burgerName, callback) {
-        orm.create('burger', burgerName, false, (res) =>callback(res));
+    create(cols, vals, cb) {
+        orm.insertOne('burger', cols, vals, (res) => callback(res));
     },
-    update(objColVals, id, callback) {
-        orm.update('burger', objColVals, id, (res) =>callback(res));
+    update(objColVals, condition, callback) {
+        orm.updateOne('burger', objColVals, condition, (res) => callback(res));
     },
 }
 

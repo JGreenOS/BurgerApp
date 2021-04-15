@@ -6,20 +6,20 @@
 <h2>Burgers Ready to Eat</h2>
 <ul>
 {{#each burger}}
-{{#unless eaten}}
-{{> burger/burger-block eaten=false}}
-{{/unless}}
+{{#if eaten}}
+{{> burgers/burger-block eaten=false}}
+{{/if}}
 {{/each}}
 </ul>
 
-<h2>Burgers In Your Belly!
-</h2>
+<h2>Burgers In Your Belly! </h2>
 <ul>
 {{#each burger}}
-{{#if eaten}}
-{{> burger/burger-block eaten=true}}
-{{/if}}
+{{#unless eaten}}
+{{> burgers/burger-block eaten=true}}
+{{/unless}}
 {{/each}}
+
 </ul>
 
 
@@ -27,8 +27,8 @@
 <h2>Make your burger!</h2>
 <form id = "create-form">
     <div class ="form-group">
-        <label for = "burger">Enter your burger order here:</label> 
-        <input type = "text" id="burger" name="burger_name">
+        <label for = "ba">Enter your burger order here:</label> 
+        <input type = "text" id="ba" name="name">
     </div>
-    <button class-"btn-primary" type="submit">Make My Burger!</button>
+    <button type="submit">Make My Burger!</button>
 </form>

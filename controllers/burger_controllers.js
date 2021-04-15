@@ -1,20 +1,24 @@
 //import model
 //require express
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const burger = require('../models/burger.js');
+const burger = require("../models/burger");
 //routes
-//get
+
 router.get('/', (req, res) => {
 burger.all((data) => {
-    res.render('index', {burger: data});
+    const hbsObject = {
+      burger: data,
+    };
+    console.log(hbsObject);
+    res.render('index', hbsObject);
     });
 });
 
 
 //post-create
-router.post('/api/burger/:id', (req, res) => {
-    burger.insertOne(['burger_name'], [req.body.name], (result) => {
+router.post('/api/burger', (req, res) => {
+    burger.insertOne(['burger_name', 'eaten'], [req.body.burger_name, req.body.eaten], (result) => {
 res.json({ id: result.insertId });
 
     });
