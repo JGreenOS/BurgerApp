@@ -26,6 +26,10 @@ h2 {
     margin-bottom: 1.5rem;
     margin-top: 1rem;
     text-align: center;
+
+}
+.jumbotron-hero{
+    background-image: url('/BurgerApp/public/assets/images/shutterstock_327314969.png');
 }
 
 .container {

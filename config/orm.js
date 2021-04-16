@@ -72,7 +72,7 @@ updateOne(table, objColVals, condition, cb){
    queryString += condition;
 
     console.log(queryString);
-    console.log("condition is", condition);
+    console.log("ObjColVals", objColVals);
     connection.query(queryString, (err, result) => {
         if (err) {
             throw err;

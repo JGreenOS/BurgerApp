@@ -7,10 +7,10 @@ const burger = {
         orm.selectAll('burger', (res) => cb(res));
     },
     create(cols, vals, cb) {
-        orm.insertOne('burger', cols, vals, (res) => callback(res));
+        orm.insertOne('burger', cols, vals, (res) => cb(res));
     },
-    update(objColVals, condition, callback) {
-        orm.updateOne('burger', objColVals, condition, (res) => callback(res));
+    update(objColVals, condition, cb) {
+        orm.updateOne('burger', objColVals, condition, (res) => cb(res));
     },
 }
 

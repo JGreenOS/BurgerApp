@@ -1,13 +1,10 @@
-<h1> The Burger Cafe - Eat Da' Burger</h1>
-
-<h2> Make and devour your burger!</h2>
 
 
 <h2>Burgers Ready to Eat</h2>
 <ul>
 {{#each burger}}
 {{#if eaten}}
-{{> burgers/burger-block eaten=false}}
+{{>burger/burger-block eaten=false}}
 {{/if}}
 {{/each}}
 </ul>
@@ -16,7 +13,7 @@
 <ul>
 {{#each burger}}
 {{#unless eaten}}
-{{> burgers/burger-block eaten=true}}
+{{>burger/burger-block eaten=true}}
 {{/unless}}
 {{/each}}
 

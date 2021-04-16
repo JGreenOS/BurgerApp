@@ -8,19 +8,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
  const changeEatBtns = document.querySelectorAll('.change-eaten');
 // console.log(changeEatBtns);
 
-//Event listener for create burger button
+//Event listener for create burger b
  if (changeEatBtns) {
     changeEatBtns.forEach((button) => {
         button.addEventListener('click', (e) => {
             const id = e.target.getAttribute('data-id');
-            const neweat = e.target.getAttribute('data-neweat');
-
+            const newEat = e.target.getAttribute(' ');
+            console.log('what is id?', id);
+            console.log('what is newEat value?', newEat);
+console.log("what is newEat right now before newEatState", newEat);
             const newEatState = {
-                //eaten: newEat == '1' ? true : false,
-                eaten: neweat,
+                eaten: newEat === '1' ? false : true
+                //eaten : newEat,        
             };
-
-            fetch(`/api/burger/${id}`, {
+          console.log("newEatState is", newEatState);
+          console.log("newEat is", newEat);
+            fetch(`/api/burger/:${id}`, {
                 method: 'PUT', 
                 headers: {
                     Accept: 'application/json', 
@@ -30,10 +33,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 body: JSON.stringify(newEatState),    
             }).then((response) => {
                 if (response.ok) {
-                    console.log(`changed burger to: ${neweat}`);
+                    console.log(`changed burger to: ${newEat}`);
                     location.reload('/');
                 } else {
-                    alert(`Something went wrong! Whoops`);
+                    alert('Something went wrong! Whoops');
                 }
             });
         });
