@@ -30,6 +30,7 @@ h2 {
 }
 .jumbotron-hero{
     background-image: url("/public/assets/img/burgertruck.png");
+    background-image: url('/BurgerApp/public/assets/images/shutterstock_327314969.png');
 }
 
 .container {

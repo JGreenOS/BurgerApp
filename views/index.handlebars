@@ -1,24 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3">
 
-      <h3> Time to Eat!</h3>
 
-      <ul>
-        {{#each burger}}
-        {{#if eaten}}
-        {{> burgers/burgers-block eaten=false}}
-        {{/if}}
-        {{/each}}
-      </ul>
+<h2>Burgers Ready to Eat</h2>
+<ul>
+{{#each burger}}
+{{#if eaten}}
+{{>burger/burger-block eaten=false}}
+{{/if}}
+{{/each}}
+</ul>
+
+<h2>Burgers In Your Belly! </h2>
+<ul>
+{{#each burger}}
+{{#unless eaten}}
+{{>burger/burger-block eaten=true}}
+{{/unless}}
+{{/each}}
+
+</ul>
+
+
+{{! Add a burger}}
+<h2>Make your burger!</h2>
+<form id = "create-form">
+    <div class ="form-group">
+        <label for = "ba">Enter your burger order here:</label> 
+        <input type = "text" id="ba" name="name">
     </div>
-    <div class="col-3">
-      <h3> In My Belly! </h3>
-
-      <ul>
-        {{#each burger}}
-        {{#unless eaten}}
-        {{> burgers/burgesr-block eaten=true}}
-        {{/unless}}
-        {{/each}}
-      </ul>
+    <button type="submit">Make My Burger!</button>
+</form>
