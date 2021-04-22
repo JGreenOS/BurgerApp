@@ -52,7 +52,7 @@ if (createBurgerBtn) {
 
     const newBurger = {
         burger_name: document.getElementById('ba').value.trim(),
-        eaten: document.getElementById('eaten').checked,
+        //eaten: document.getElementById('eaten').checked,
     };
  //create the burgers
     fetch('/api/burger', {
