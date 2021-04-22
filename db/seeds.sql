@@ -1,4 +1,4 @@
-USE u9zydv5t5kdsezuy;
+USE burgers_db;
 INSERT INTO burger(
     burger_name, eaten)
     VALUES

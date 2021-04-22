@@ -1,7 +1,7 @@
 /*Stylesheet for Burger App */
 
 body {
-    background-color: #f03636;
+    background-color:rgb(61, 61, 163);
 }
 
 img {
@@ -26,6 +26,10 @@ h2 {
     margin-bottom: 1.5rem;
     margin-top: 1rem;
     text-align: center;
+
+}
+.jumbotron-hero{
+    background-image: url("/public/assets/img/burgertruck.png");
 }
 
 .container {
@@ -47,7 +51,7 @@ h2 {
     text-align: center;
 }
 
-#devour-button {
+#eat-button {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1px;
     border: 2px solid rgb(0, 0, 0);
@@ -77,12 +81,12 @@ h2 {
     border: 3px solid black;
 }
 
-.devoured-burgers {
+.eaten-burgers {
     text-align: center;
     margin-bottom: 1rem;
 }
 
-#devoured-burger-list {
+#eaten-burger-list {
     padding: 2%;
     border: 3px solid black;
 }

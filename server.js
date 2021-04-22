@@ -1,12 +1,12 @@
 //require express
-const express = require('express');
+const express = require("express");
 const path = require('path');
-const routes = require('./controllers/burger_controllers.js');
-//handlebars
+
 const exphbs = require('express-handlebars');
 const app = express();
+const routes = require('./controllers/burgers_controller');
 // env variables
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 app.engine('handlebars',exphbs({

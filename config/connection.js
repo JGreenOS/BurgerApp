@@ -1,24 +1,25 @@
-require ('dotenv').config();
-const mysql = require ('mysql');
-var connection;
+const mysql = require('mysql');
+const { connect } = require('../controllers/burgers_controller.js');
 
-if (process.env.JAWSDB_URL){
-connection = mysql.createConnection(process.env.JAWSDB_URL);
+var connection;
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
     connection = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'5jkhxtu2',
-    database: 'u9zydv5t5kdsezuy'
+        host: 'localhost',
+        port: 3306,
+        user: 'root',
+        password: '5jkhxtu2',
+        database: 'burgers_db',
 });
-};
+}
 
-// connection.connect((err) => {
-//     if (err) {
-//         console.error(`Error connecting: ${err.stack}`);
-//         return;
-//     }
-//     console.log(`Connected as id ${connection.threadId}`);
-// });
+connection.connect((err) => {
+    if (err) {
+        console.error(`Error Connecting: ${err.stack}`);
+        return;
+}
+console.log(`Connected as id ${connection.threadId}`);
+});
 
-module.exports = connection; 
+module.exports = connection;
