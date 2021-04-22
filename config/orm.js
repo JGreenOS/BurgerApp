@@ -8,19 +8,7 @@ const printQuestionMarks = (num) => {
     for (let i = 0; i < num; i++) {
       arr.push('?');
     }
-}
-// //helper function for SQL syntax for question marks in queries
-// const printQuestionMarks = (num) => {
-//      const arr = [];
-//      for (let i = 0; i < num; i++) {
-
-//          arr.push('?');
-//      }
-//      return arr.toString();
-
-//  };
-
- //helper function to take object key/value pairs to SQL
+  }
  const objToSql = (ob) => {
      const arr = [];
          for (const key in ob) {
@@ -38,24 +26,6 @@ const printQuestionMarks = (num) => {
     return arr.toString();
   };
 
-const objToSql = (ob) => {
-    const arr = [];
-
-// Loop through the keys and push the key/value as a string int arr
-for (const key in ob) {
-    let value = ob[key];
-    // Check to skip hidden properties
-    if (Object.hasOwnProperty.call(ob, key)) {
-      // If string with spaces, add quotations (James Buffet => 'James Buffet')
-      if (typeof value === 'string' && value.indexOf(' ') >= 0) {
-        value = `'${value}'`;
-      }
-      // e.g. {devoured: true} => ["devoured=true"]
-      arr.push(`${key}=${value}`);
-    }
-  }
-return arr.toString();
-};
 
 const orm = {
   selectAll(tableInput, cb) {

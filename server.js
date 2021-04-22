@@ -2,18 +2,19 @@
 const express = require("express");
 const path = require('path');
 
-const exphbs = require('express-handlebars');
-const routes = require('./controllers/burger_controllers');
-
 const app = express();
-const routes = require('./controllers/burgers_controller');
+const routes = require('./controllers/burger_controllers');
 // env variables
 const PORT = process.env.PORT || 5000;
-app.set('views', path.join(__dirname, 'views'));
+
+//handlebars
+const exphbs = require('express-handlebars');
+
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
-app.engine('handlebars',exphbs({
-    defaultLayout:'main'}));
-const PORT = process.env.PORT || 8080;
+app.set('views', path.join(__dirname, 'views'));
+
+
 
 
 //static content for app
@@ -22,12 +23,6 @@ app.use(express.static('public'));
 //apps as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-//handlebars
-const exphbs = require('express-handlebars');
-
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
 
 //routes
 
