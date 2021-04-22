@@ -3,7 +3,7 @@ const burgers = {
     all(cb) {
         orm.selectAll('burgers', (res) => cb(res));
     },
-    create(cols, vals, cb) {
+    insertOne(cols, vals, cb) {
         orm.insertOne('burgers', cols, vals, (res) => cb(res));
     },
     update(objColVals, condition, cb) {

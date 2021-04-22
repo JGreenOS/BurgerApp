@@ -13,17 +13,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
     changeEatBtns.forEach((button) => {
         button.addEventListener('click', (e) => {
             const id = e.target.getAttribute('data-id');
-            const newEat = e.target.getAttribute(' ');
+            const newEat = e.target.getAttribute('data-neweaten');
             console.log('what is id?', id);
             console.log('what is newEat value?', newEat);
 console.log("what is newEat right now before newEatState", newEat);
             const newEatState = {
-                eaten: newEat === '1' ? false : true
-                //eaten : newEat,        
+                eaten: newEat === 'false' ? false : true
+              
+                  
             };
           console.log("newEatState is", newEatState);
           console.log("newEat is", newEat);
-            fetch(`/api/burger/:${id}`, {
+            fetch(`/api/burgers/${id}`, {
                 method: 'PUT', 
                 headers: {
                     Accept: 'application/json', 
@@ -52,10 +53,11 @@ if (createBurgerBtn) {
 
     const newBurger = {
         burger_name: document.getElementById('ba').value.trim(),
-        //eaten: document.getElementById('eaten').checked,
+      
     };
+    console.log("value from form", newBurger.burger_name);
  //create the burgers
-    fetch('/api/burger', {
+    fetch('/api/burgers', {
         method: 'POST',
         headers: {
             Accept: 'application/json',

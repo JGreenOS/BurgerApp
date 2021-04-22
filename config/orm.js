@@ -7,7 +7,9 @@ const printQuestionMarks = (num) => {
   
     for (let i = 0; i < num; i++) {
       arr.push('?');
+  
     }
+    return arr.toString();
   }
  const objToSql = (ob) => {
      const arr = [];

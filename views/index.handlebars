@@ -2,7 +2,7 @@
 
 <h2>Burgers Ready to Eat</h2>
 <ul>
-{{#each burger}}
+{{#each burgers}}
 {{#if eaten}}
 {{>burger/burger-block eaten=false}}
 {{/if}}
@@ -11,7 +11,7 @@
 
 <h2>Burgers In Your Belly! </h2>
 <ul>
-{{#each burger}}
+{{#each burgers}}
 {{#unless eaten}}
 {{>burger/burger-block eaten=true}}
 {{/unless}}
