@@ -28,11 +28,10 @@ h2 {
     text-align: center;
 
 }
-.jumbotron-hero{
-    background-image: url("/public/assets/img/burgertruck.png");
-    background-image: url('/BurgerApp/public/assets/images/shutterstock_327314969.png');
-}
+.jumbotron hero{
+    background-image: url('/public/img/burgertruck.png');
 
+}
 .container {
     font-family: 'Montserrat', sans-serif;
     width: 90%;
