@@ -1,5 +1,5 @@
-USE burgers_db;
-INSERT INTO burger(
+USE u9zydv5t5kdsezuy;
+INSERT INTO burgers(
     burger_name, eaten)
     VALUES
     ("Single", true),
