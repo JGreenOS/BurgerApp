@@ -1,5 +1,6 @@
 const mysql = require('mysql2');
 require('dotenv').config();
+console.log("URL", process.env.JAWSDB_URL);
 var connection = mysql.createConnection(process.env.JAWSDB_URL);
 
 // const connection = mysql.createConnection({
