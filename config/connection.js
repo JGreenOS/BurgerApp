@@ -7,7 +7,7 @@ var connection = mysql.createConnection(process.env.JAWSDB_URL);
 //     user:process.env.USER,
 //     password:process.env.PASSWORD,
 //     database:process.env.DBNAME
-});
+//});
 // if (process.env.JAWSDB_URL) {
 //     connection = mysql.createConnection(process.env.JAWSDB_URL);
 // } else {
