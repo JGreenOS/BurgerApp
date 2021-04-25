@@ -1,17 +1,24 @@
-        <h1> The Burger Cafe - Eat Da' Burger</h1>
+        
+<h1> The Burger Cafe - Eat Da' Burger</h1>
       <h2> Make and devour your burger!</h2>
 
+
+<div class = "row">
+    <div class = "col-md-6 text-center">
 <h2>Burgers Ready to Eat</h2>
-<ul>
+
+<ul class="list-group">
 {{#each burgers}}
 {{#if eaten}}
 {{>burger/burger-block eaten=false}}
 {{/if}}
 {{/each}}
 </ul>
+</div>
 
+ <div class = "col-md-6 text-center">
 <h2>Burgers In Your Belly! </h2>
-<ul>
+<ul class="list-group">
 {{#each burgers}}
 {{#unless eaten}}
 {{>burger/burger-block eaten=true}}
@@ -19,8 +26,10 @@
 {{/each}}
 
 </ul>
+ </div>
 
-
+<div class = "container">
+    <div class = "col-md-12 text-center">
 {{! Add a burger}}
 <h2>Make your burger!</h2>
 <form id = "create-form">
@@ -30,3 +39,5 @@
     </div>
     <button type="submit">Make My Burger!</button>
 </form>
+</div>
+</div>
